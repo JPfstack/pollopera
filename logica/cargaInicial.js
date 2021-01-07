@@ -52,28 +52,34 @@ function cargarDatos() {
 
                             columns: [
                                 {
-                                    id: "id", header: [{ text: "ID Empleado" }], width: 120, sort: "int"
+                                    view: "icon",
+                                    width: 50,
+                                    template: "<span class='webix_icon wxi-user'></span>",
                                 },
                                 {
-                                    id: "nombre", header: [{ text: "Nombre completo" }, { content: "textFilter" }], fillspace: true, sort: "string"
+                                    id: "id", header: ["id", { content: "textFilter", placeholder: "Busque por cualquier campo", compare: filtrado, colspan: 3 }], width: 120, sort: "int"
                                 },
                                 {
-                                    id: "email", header: [{ text: "eMail" }, { content: "textFilter" }], sort: "string", width: 200
+                                    id: "nombre", header: ["Nombre completo", null], fillspace: true, sort: "string"
                                 },
                                 {
-                                    id: "telefono", header: [{ text: "Teléfono" }, { content: "textFilter" }], sort: "number", width: 150
+                                    id: "email", header: ["eMail", null], sort: "string", width: 200
                                 },
                                 {
-                                    map: "(date)#fecha_ing#", fillspace: true, header: [{ text: "Fecha ingreso" }, { content: "textFilter" }], sort: "date", format: webix.i18n.longDateFormatStr
+                                    id: "telefono", header: ["Teléfono", { content: "textFilter" }], sort: "number", width: 150
                                 },
                                 {
-                                    id: "departamento", header: [{ text: "Departamento" }, { content: "selectFilter" }], width: 150, sort: "string"
+                                    id: "fecha_ing",
+                                    map: "(date)#fecha_ing#", fillspace: true, header: ["Fecha ingreso", { content: "textFilter" }], sort: "date", format: webix.i18n.longDateFormatStr
                                 },
                                 {
-                                    id: "salario", header: [{ text: "Salario" }, { content: "selectFilter" }], sort: "int"
+                                    id: "departamento", header: ["Departamento", { content: "selectFilter" }], width: 150, sort: "string"
                                 },
                                 {
-                                    id: "sede", header: [{ text: "Sede" }, { content: "selectFilter" }], sort: "string"
+                                    id: "sede", header: ["Sede", { content: "textFilter" }], sort: "string"
+                                },
+                                {
+                                    id: "salario", header: ["Salario", { content: "numberFilter" }], sort: "int"
                                 }
                             ]
                         }
@@ -83,3 +89,4 @@ function cargarDatos() {
         });
     });
 };
+

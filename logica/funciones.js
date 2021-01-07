@@ -206,4 +206,21 @@ function detalleEmpleado() {
 };
 
 
+// FUNCIONES DE FILTRADO GLOBAL
+function equals(a, b) {
+    a = a.toString().toLowerCase();
+    return a.indexOf(b) !== -1;
+};
+
+function filtrado(value, filter, obj) {
+    if (equals(obj.id, filter)) return true;
+    if (equals(obj.nombre, filter)) return true;
+    if (equals(obj.email, filter)) return true;
+    if (equals(obj.telefono, filter)) return true;
+    if (equals(obj.fecha_ing, filter)) return true;
+    if (equals(obj.departamento, filter)) return true;
+    if (equals(obj.salario, filter)) return true;
+    if (equals(obj.sede, filter)) return true;
+    return false;
+};
 
